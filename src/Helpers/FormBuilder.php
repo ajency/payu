@@ -80,7 +80,7 @@ class FormBuilder
      */
     protected function getHashChecksum()
     {
-        $fields = array_merge($this->config->getRequiredFields(), $this->config->getOptionalFields());
+        $fields = array_merge($this->config->getRequiredFields(), $this->config->getCustomFields(), $this->config->getOptionalFields());
 
         $hash_array = [];
         foreach (collect($fields)->flip()->except(['phone'])->flip() as $field) {
@@ -122,8 +122,8 @@ class FormBuilder
     private function getDataArray()
     {
         $data = [];
-        $items = collect($this->config->getRequiredFields())->merge($this->config->getOptionalFields())
-            ->merge($this->config->getAdditionalFields());
+        $items = collect($this->config->getRequiredFields())->merge($this->config->getCustomFields())->merge($this->config->getOptionalFields())
+            ->merge($this->config->getCustomFields())->merge($this->config->getAdditionalFields());
 
         foreach ($items as $item) {
             $this->request->has($item) ? $data[$item] = $this->request->get($item) : null;

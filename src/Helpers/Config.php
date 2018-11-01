@@ -57,6 +57,11 @@ class Config
     /**
      * @var array
      */
+    protected $custom_fields;
+
+    /**
+     * @var array
+     */
     protected $optional_fields;
 
     /**
@@ -160,6 +165,14 @@ class Config
     public function getRequiredFields()
     {
         return $this->required_fields;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
     }
 
     /**

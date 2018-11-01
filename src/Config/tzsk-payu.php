@@ -9,7 +9,17 @@ return [
     | These are the fields that are required for making a payment.
     |
     */
-    'required_fields' => ['txnid', 'amount', 'productinfo', 'firstname', 'email', 'phone'],
+    'required_fields' => ['txnid', 'amount', 'productinfo', 'phone'],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Ajency Fields.
+    |--------------------------------------------------------------------------
+    |
+    | These are the fields that are removed from required.
+    |
+    */
+    'custom_fields' => ['firstname', 'email'],
 
     /*
     |--------------------------------------------------------------------------

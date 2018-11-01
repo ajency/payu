@@ -8,7 +8,7 @@ Route::group(['namespace' => 'Tzsk\Payu\Controllers', 'middleware' => ['web']], 
      * Make the payment request.
      */
     Route::get(
-        'tzsk/payment',
+        'payu/payment',
         ['as' => 'tzsk.payu.payment', 'uses' => 'PaymentController@index']
     );
 
@@ -16,7 +16,7 @@ Route::group(['namespace' => 'Tzsk\Payu\Controllers', 'middleware' => ['web']], 
      * Get Response from payment.
      */
     Route::post(
-        'tzsk/payment/{status}',
+        'payu/payment/{status}',
         ['as' => 'tzsk.payu.payment.status', 'uses' => 'PaymentController@payment']
     );
 });

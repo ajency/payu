@@ -63,7 +63,7 @@ class PayuGateway
 
         session()->put('tzsk_payu_data', $this->makeSession($data, $redirector));
 
-        return redirect()->to('tzsk/payment');
+        return redirect()->to('payu/payment');
     }
 
     /**

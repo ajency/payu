@@ -24,7 +24,7 @@ class RedirectorTest extends TestCase
         $route = $this->redirector->redirectRoute('tzsk.payu.payment')->getUrl();
 
         $this->assertEquals(url('foo'), $to);
-        $this->assertEquals(url('tzsk/payment'), $action);
-        $this->assertEquals(url('tzsk/payment'), $route);
+        $this->assertEquals(url('payu/payment'), $action);
+        $this->assertEquals(url('payu/payment'), $route);
     }
 }

@@ -54,7 +54,7 @@ return [
     |
     */
     'redirect' => [
-        'surl' => 'tzsk/payment/success',
-        'furl' => 'tzsk/payment/failed',
+        'surl' => 'payu/payment/success',
+        'furl' => 'payu/payment/failed',
     ]
 ];

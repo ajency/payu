@@ -48,15 +48,13 @@ class FormBuilder
     protected function getFields()
     {
         $this->request->replace($this->storage->getData());
-
-        $redirect = collect($this->config->getRedirect())->map(function ($value) {
-            $separator = str_contains($value, '?') ? '&' : '?';
-            return url($value . $separator . '_token=' . csrf_token() . '&' . 'callback=' . $this->getStatusUrl());
+        $request_params = $this->validateRequest();
+        $redirect = collect($this->config->getRedirect())->map(function ($value) use ($request_params) {
+            return url($value . $request_params['txnid']);
         })->all();
-
         return array_merge(
             ['key' => $this->config->getKey(), 'hash' => $this->getHashChecksum()],
-            array_merge($redirect, $this->validateRequest()),
+            array_merge($redirect, $request_params),
             $this->config->isPayuMoney() ? ['service_provider' => 'payu_paisa'] : []
         );
     }
